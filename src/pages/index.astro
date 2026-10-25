@@ -1,109 +1,80 @@
 ---
-import BaseHead from '../components/BaseHead.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+import BaseHead from '../../components/BaseHead.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../../consts';
 import { getCollection } from 'astro:content';
-import FormattedDate from '../components/FormattedDate.astro';
+import FormattedDate from '../../components/FormattedDate.astro';
 
-// ブログ記事を取得し、日付が新しい順にソートして最新4件をピックアップ
 const posts = (await getCollection('blog')).sort(
 	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
 );
-const recentPosts = posts.slice(0, 4);
 ---
 
 <!doctype html>
 <html lang="ja">
 	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+		<BaseHead title={`Blog | ${SITE_TITLE}`} description={SITE_DESCRIPTION} />
 		<style>
-			.hero-section {
-				margin-bottom: 2.5em;
-				padding-bottom: 1.5em;
-				border-bottom: 1px solid #eee;
-			}
-			.recent-posts {
+			ul {
 				list-style-type: none;
 				padding: 0;
+				margin: 0;
 			}
-			.recent-posts li {
-				margin-bottom: 1.5em;
-				padding-bottom: 1em;
-				border-bottom: 1px dashed #eee;
+			li {
+				border-bottom: 1px dashed var(--border-color);
+				padding: 1.6em 0;
 			}
-			.recent-posts a {
-				font-size: 1.2em;
-				font-weight: bold;
+			li:last-child {
+				border-bottom: none;
+			}
+			.post-link {
 				text-decoration: none;
+				color: inherit;
+				display: block;
 			}
-			.post-date {
+			.post-link:hover .title {
+				color: var(--link-color);
+			}
+			.title {
+				font-size: 1.35em;
+				font-weight: bold;
+				margin: 0 0 0.3em 0;
+				color: var(--text-color);
+				transition: color 0.15s ease;
+			}
+			.date {
 				font-size: 0.85em;
-				color: #666;
-				margin-top: 0.2em;
+				color: var(--text-muted);
 			}
-			.post-desc {
-				margin-top: 0.4em;
+			.description {
+				margin: 0.5em 0 0 0;
 				font-size: 0.95em;
-				color: #444;
-			}
-			.view-all {
-				display: inline-block;
-				margin-top: 1em;
-				font-weight: bold;
-			}
-			.category-list {
-				list-style-type: none;
-				padding: 0;
-				display: flex;
-				flex-wrap: wrap;
-				gap: 0.8em;
-			}
-			.category-list li {
-				background: #f4f4f4;
-				padding: 0.6em 1.2em;
-				border-radius: 4px;
-				font-weight: bold;
-				font-size: 0.95em;
+				color: var(--text-color);
+				line-height: 1.6;
 			}
 		</style>
 	</head>
 	<body>
 		<Header />
 		<main>
-			<section class="hero-section">
-				<h1>Eutopia-log</h1>
-				<p>一般市民による情報発信ブログ。</p>
-				<p style="margin-top: 0.8em;">
-					<a href="/about" style="font-size: 0.95em;">➔ 運営者プロフィール・コンセプト（About）</a>
-				</p>
-			</section>
-
 			<section>
-				<h2>最新の記事</h2>
-				<ul class="recent-posts">
+				<ul>
 					{
-						recentPosts.map((post) => (
+						posts.map((post) => (
 							<li>
-								<a href={`/blog/${post.slug}/`}>{post.data.title}</a>
-								<div class="post-date">
-									<FormattedDate date={post.data.pubDate} />
-								</div>
-								{post.data.description && <p class="post-desc">{post.data.description}</p>}
+								<a href={`/blog/${post.slug || post.id}/`} class="post-link">
+									<h2 class="title">{post.data.title}</h2>
+									<p class="date">
+										<FormattedDate date={post.data.pubDate} />
+									</p>
+									{post.data.description && (
+										<p class="description">{post.data.description}</p>
+									)}
+								</a>
 							</li>
 						))
 					}
-				</ul>
-				<a href="/blog" class="view-all">➔ 過去の記事一覧（Blog）を見る</a>
-			</section>
-
-			<section style="margin-top: 3em;">
-				<h2>カテゴリ</h2>
-				<ul class="category-list">
-					<li>モノのレビュー</li>
-					<li>DIY整備</li>
-					<li>ゲーム制作</li>
-					<li>雑記</li>
 				</ul>
 			</section>
 		</main>

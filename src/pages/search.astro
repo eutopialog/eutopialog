@@ -1,0 +1,148 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+import { getCollection } from 'astro:content';
+
+const posts = await getCollection('blog');
+const searchIndex = posts.map((post) => ({
+	slug: post.slug || post.id,
+	title: post.data.title,
+	description: post.data.description || '',
+	date: post.data.pubDate.toLocaleDateString('en-us', {
+		year: 'numeric',
+		month: 'short',
+		day: 'numeric',
+	}),
+	body: post.body || '',
+}));
+---
+
+<!doctype html>
+<html lang="ja">
+	<head>
+		<BaseHead title={`Search | ${SITE_TITLE}`} description={SITE_DESCRIPTION} />
+		<style>
+			.search-container {
+				margin-bottom: 2em;
+			}
+			.search-input {
+				width: 100%;
+				padding: 0.8em 1em;
+				font-size: 1.05em;
+				font-family: inherit;
+				border: 1px solid var(--border-color);
+				border-radius: 4px;
+				background-color: #ffffff;
+				color: var(--text-color);
+				box-sizing: border-box;
+				outline: none;
+			}
+			.search-input:focus {
+				border-color: var(--text-color);
+			}
+			ul.results-list {
+				list-style-type: none;
+				padding: 0;
+				margin: 1.5em 0 0 0;
+			}
+			ul.results-list li {
+				border-bottom: 1px dashed var(--border-color);
+				padding: 1.2em 0;
+			}
+			ul.results-list li:last-child {
+				border-bottom: none;
+			}
+			.result-link {
+				text-decoration: none;
+				color: inherit;
+				display: block;
+			}
+			.result-link:hover .result-title {
+				color: var(--link-color);
+			}
+			.result-title {
+				font-size: 1.2em;
+				font-weight: bold;
+				margin: 0 0 0.2em 0;
+				color: var(--text-color);
+			}
+			.result-date {
+				font-size: 0.85em;
+				color: var(--text-muted);
+			}
+			.result-desc {
+				margin: 0.4em 0 0 0;
+				font-size: 0.9em;
+				color: var(--text-color);
+			}
+			.no-results {
+				color: var(--text-muted);
+				margin-top: 1.5em;
+			}
+		</style>
+	</head>
+	<body>
+		<Header />
+		<main>
+			<section class="search-container">
+				<h2>検索</h2>
+				<input
+					type="text"
+					id="search-input"
+					class="search-input"
+					placeholder="キーワードを入力（例: MINI, AI, 3Dタッチ）"
+					autocomplete="off"
+				/>
+				<ul id="results-list" class="results-list"></ul>
+				<p id="no-results" class="no-results" style="display: none;">該当する記事が見つかりませんでした。</p>
+			</section>
+		</main>
+		<Footer />
+
+		<script define:vars={{ searchIndex }}>
+			const input = document.getElementById('search-input');
+			const resultsList = document.getElementById('results-list');
+			const noResults = document.getElementById('no-results');
+
+			function renderResults(query) {
+				const trimmed = query.trim().toLowerCase();
+				resultsList.innerHTML = '';
+				
+				if (!trimmed) {
+					noResults.style.display = 'none';
+					return;
+				}
+
+				const matched = searchIndex.filter((post) => {
+					const titleMatch = post.title.toLowerCase().includes(trimmed);
+					const descMatch = post.description.toLowerCase().includes(trimmed);
+					const bodyMatch = post.body.toLowerCase().includes(trimmed);
+					return titleMatch || descMatch || bodyMatch;
+				});
+
+				if (matched.length === 0) {
+					noResults.style.display = 'block';
+				} else {
+					noResults.style.display = 'none';
+					matched.forEach((post) => {
+						const li = document.createElement('li');
+						li.innerHTML = `
+							<a href="/blog/${post.slug}/" class="result-link">
+								<h3 class="result-title">${post.title}</h3>
+								<p class="result-date">${post.date}</p>
+								${post.description ? `<p class="result-desc">${post.description}</p>` : ''}
+							</a>
+						`;
+						resultsList.appendChild(li);
+					});
+				}
+			}
+
+			input?.addEventListener('input', (e) => {
+				renderResults(e.target.value);
+			});
+		</script>
+	</body>
+</html>
