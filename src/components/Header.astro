@@ -7,7 +7,6 @@ import { SITE_TITLE } from '../consts';
 	<nav>
 		<h2><a href="/">{SITE_TITLE}</a></h2>
 		<div class="internal-links">
-			<HeaderLink href="/">Home</HeaderLink>
 			<HeaderLink href="/blog">Blog</HeaderLink>
 			<HeaderLink href="/about">About</HeaderLink>
 		</div>
@@ -16,45 +15,43 @@ import { SITE_TITLE } from '../consts';
 
 <style>
 	header {
-		position: sticky;
-		top: 0;
-		z-index: 100;
 		margin: 0;
 		padding: 0 1em;
-		background: white;
-		box-shadow: 0 2px 8px rgba(var(--black), 5%);
+		background-color: rgba(242, 240, 233, 0.94);
+		backdrop-filter: blur(8px);
+		border-bottom: 1px solid var(--border-color);
 	}
 	h2 {
 		margin: 0;
-		font-size: 1em;
+		font-size: 1.1em;
 	}
-
 	h2 a,
 	h2 a.active {
 		text-decoration: none;
+		color: var(--text-color);
+		font-weight: 700;
 	}
 	nav {
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
+		max-width: var(--max-width);
+		margin: 0 auto;
+		padding: 1em 0;
 	}
-	nav a {
-		padding: 1em 0.5em;
-		color: var(--black);
-		border-bottom: 4px solid transparent;
-		text-decoration: none;
-	}
-	nav a.active {
-		text-decoration: none;
-		border-bottom-color: var(--accent);
-	}
-	.social-links,
-	.social-links a {
+	.internal-links {
 		display: flex;
+		gap: 1.2em;
 	}
-	@media (max-width: 720px) {
-		.social-links {
-			display: none;
-		}
+	.internal-links a {
+		padding: 0.5em 0;
+		color: var(--text-color);
+		border-bottom: 3px solid transparent;
+		text-decoration: none;
+	}
+	.internal-links a.active {
+		text-decoration: none;
+		border-bottom-color: var(--accent-color);
+		font-weight: bold;
 	}
 </style>
