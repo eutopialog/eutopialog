@@ -1,10 +1,10 @@
 ---
-import BaseHead from '../components/BaseHead.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+import BaseHead from '../../components/BaseHead.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../../consts';
 import { getCollection } from 'astro:content';
-import FormattedDate from '../components/FormattedDate.astro';
+import FormattedDate from '../../components/FormattedDate.astro';
 
 const posts = (await getCollection('blog')).sort(
 	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
@@ -14,48 +14,18 @@ const posts = (await getCollection('blog')).sort(
 <!doctype html>
 <html lang="ja">
 	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+		<BaseHead title={`Blog | ${SITE_TITLE}`} description={SITE_DESCRIPTION} />
 		<style>
-			.hero-section {
-				margin-bottom: 2em;
-			}
-			.site-title {
-				font-size: 2.2em;
-				font-weight: bold;
-				margin-bottom: 0.2em;
-				border-bottom: 2px solid var(--text-color);
-				display: inline-block;
-				padding-bottom: 0.1em;
-			}
-			.site-desc {
-				color: var(--text-muted);
-				margin-top: 0.8em;
-				margin-bottom: 1em;
-			}
-			.about-link {
-				display: inline-block;
-				margin-top: 0.5em;
-				color: var(--text-color);
-				text-decoration: underline;
-				font-weight: 500;
-			}
-			.section-title {
-				font-size: 1.4em;
-				font-weight: bold;
-				margin: 2.5em 0 1em 0;
-				border-bottom: 1px solid var(--border-color);
-				padding-bottom: 0.3em;
-			}
-			ul.post-list {
+			ul {
 				list-style-type: none;
 				padding: 0;
 				margin: 0;
 			}
-			ul.post-list li {
+			li {
 				border-bottom: 1px dashed var(--border-color);
-				padding: 1.2em 0;
+				padding: 1.6em 0;
 			}
-			ul.post-list li:last-child {
+			li:last-child {
 				border-bottom: none;
 			}
 			.post-link {
@@ -63,49 +33,43 @@ const posts = (await getCollection('blog')).sort(
 				color: inherit;
 				display: block;
 			}
-			.post-link:hover .post-title {
+			.post-link:hover .title {
 				color: var(--link-color);
 			}
-			.post-title {
-				font-size: 1.2em;
+			.title {
+				font-size: 1.35em;
 				font-weight: bold;
-				margin: 0 0 0.2em 0;
+				margin: 0 0 0.3em 0;
 				color: var(--text-color);
 				transition: color 0.15s ease;
 			}
-			.post-date {
+			.date {
 				font-size: 0.85em;
 				color: var(--text-muted);
 			}
-			.post-desc {
-				margin: 0.4em 0 0 0;
-				font-size: 0.9em;
+			.description {
+				margin: 0.5em 0 0 0;
+				font-size: 0.95em;
 				color: var(--text-color);
+				line-height: 1.6;
 			}
 		</style>
 	</head>
 	<body>
 		<Header />
 		<main>
-			<section class="hero-section">
-				<h1 class="site-title">eutopia-log</h1>
-				<p class="site-desc">一般市民による情報発信ブログ。</p>
-				<a href="/about" class="about-link">➔ 運営者プロフィール・コンセプト (About)</a>
-			</section>
-
 			<section>
-				<h2 class="section-title">最新の記事</h2>
-				<ul class="post-list">
+				<ul>
 					{
 						posts.map((post) => (
 							<li>
 								<a href={`/blog/${post.slug || post.id}/`} class="post-link">
-									<h3 class="post-title">{post.data.title}</h3>
-									<p class="post-date">
+									<h2 class="title">{post.data.title}</h2>
+									<p class="date">
 										<FormattedDate date={post.data.pubDate} />
 									</p>
 									{post.data.description && (
-										<p class="post-desc">{post.data.description}</p>
+										<p class="description">{post.data.description}</p>
 									)}
 								</a>
 							</li>
