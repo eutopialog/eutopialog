@@ -6,7 +6,7 @@ import { defineConfig, fontProviders } from 'astro/config';
 
 // https://astro.build/config
 export default defineConfig({
-	site: 'https://eutpia-log.com',
+	site: 'https://eutopia-log.com',
 	integrations: [mdx(), sitemap()],
 	fonts: [
 		{
