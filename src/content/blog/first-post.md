@@ -1,16 +1,64 @@
 ---
-title: 'First post'
-description: 'Lorem ipsum dolor sit amet'
-pubDate: 'Jul 08 2022'
+title: 'ブログ始めました'
+description: 'ブログを開設したきっかけと、今後の発信内容について'
+pubDate: 'Oct 25 2026'
 heroImage: '../../assets/blog-placeholder-3.jpg'
 ---
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vitae ultricies leo integer malesuada nunc vel risus commodo viverra. Adipiscing enim eu turpis egestas pretium. Euismod elementum nisi quis eleifend quam adipiscing. In hac habitasse platea dictumst vestibulum. Sagittis purus sit amet volutpat. Netus et malesuada fames ac turpis egestas. Eget magna fermentum iaculis eu non diam phasellus vestibulum lorem. Varius sit amet mattis vulputate enim. Habitasse platea dictumst quisque sagittis. Integer quis auctor elit sed vulputate mi. Dictumst quisque sagittis purus sit amet.
+初めまして。この度、個人の備忘録と情報発信の場として、新しくブログを開設しました。
 
-Morbi tristique senectus et netus. Id semper risus in hendrerit gravida rutrum quisque non tellus. Habitasse platea dictumst quisque sagittis purus sit amet. Tellus molestie nunc non blandit massa. Cursus vitae congue mauris rhoncus. Accumsan tortor posuere ac ut. Fringilla urna porttitor rhoncus dolor. Elit ullamcorper dignissim cras tincidunt lobortis. In cursus turpis massa tincidunt dui ut ornare lectus. Integer feugiat scelerisque varius morbi enim nunc. Bibendum neque egestas congue quisque egestas diam. Cras ornare arcu dui vivamus arcu felis bibendum. Dignissim suspendisse in est ante in nibh mauris. Sed tempus urna et pharetra pharetra massa massa ultricies mi.
+最初の記事ということで、私がなぜ今になってブログを立ち上げたのか、そしてこれからどんなことを書いていくつもりなのか、少しお話しさせてください。
 
-Mollis nunc sed id semper risus in. Convallis a cras semper auctor neque. Diam sit amet nisl suscipit. Lacus viverra vitae congue eu consequat ac felis donec. Egestas integer eget aliquet nibh praesent tristique magna sit amet. Eget magna fermentum iaculis eu non diam. In vitae turpis massa sed elementum. Tristique et egestas quis ipsum suspendisse ultrices. Eget lorem dolor sed viverra ipsum. Vel turpis nunc eget lorem dolor sed viverra. Posuere ac ut consequat semper viverra nam. Laoreet suspendisse interdum consectetur libero id faucibus. Diam phasellus vestibulum lorem sed risus ultricies tristique. Rhoncus dolor purus non enim praesent elementum facilisis. Ultrices tincidunt arcu non sodales neque. Tempus egestas sed sed risus pretium quam vulputate. Viverra suspendisse potenti nullam ac tortor vitae purus faucibus ornare. Fringilla urna porttitor rhoncus dolor purus non. Amet dictum sit amet justo donec enim.
+## 最新テクノロジーを冷ややかな目で見ていた過去
 
-Mattis ullamcorper velit sed ullamcorper morbi tincidunt. Tortor posuere ac ut consequat semper viverra. Tellus mauris a diam maecenas sed enim ut sem viverra. Venenatis urna cursus eget nunc scelerisque viverra mauris in. Arcu ac tortor dignissim convallis aenean et tortor at. Curabitur gravida arcu ac tortor dignissim convallis aenean et tortor. Egestas tellus rutrum tellus pellentesque eu. Fusce ut placerat orci nulla pellentesque dignissim enim sit amet. Ut enim blandit volutpat maecenas volutpat blandit aliquam etiam. Id donec ultrices tincidunt arcu. Id cursus metus aliquam eleifend mi.
+私はこれまでずっとiPhone 5やiPhone SEを愛用してきました。強いこだわりがあったわけではなく、シンプルに「安かったから」です。
 
-Tempus quam pellentesque nec nam aliquam sem. Risus at ultrices mi tempus imperdiet. Id porta nibh venenatis cras sed felis eget velit. Ipsum a arcu cursus vitae. Facilisis magna etiam tempor orci eu lobortis elementum. Tincidunt dui ut ornare lectus sit. Quisque non tellus orci ac. Blandit libero volutpat sed cras. Nec tincidunt praesent semper feugiat nibh sed pulvinar proin gravida. Egestas integer eget aliquet nibh praesent tristique magna.
+世間では毎年新しいスマートフォンが発表されますが、私はそれをどこか馬鹿らしく、冷ややかな目で見てきました。
+
+iPhone 6だったか、あるいはiPhone 7だったか、それが出た頃に知り合いが「3Dタッチ！」と見せてくれたことがありました。
+
+「ほう…？」という感じでした。今も3Dタッチが何なのかは分かりません。きっと何かに便利なのでしょう。
+
+つまり、テクノロジーの進化と自分の生活が全く繋がっていなかったのです。
+
+そんな態度であった訳ですから、今文章を書きながら、右クリックで何ができるのか、そもそもこのタッチパッドは左右を識別しているのかもよく分かりません。確か「この三つのどれかを押しながら『c』を押すと便利だったはず…」と思い出しながら頑張っています。
+
+## 価値観を変えた「ちょっとした出来事」とAIの衝撃
+
+そんな私の価値観が揺らいだのは、2年ほど前のことです。
+
+知り合いと靴の話になり、私が「アシックスのnimbus20って靴がすごく良くて、またあったら買いたいんだよね」と何気なくこぼしました。するとその知り合いは、手元のスマートフォンをさっと操作して瞬く間にnimbus20の情報を引き出し、「あ、もう在庫ないみたいだね」とその場ですぐに状況を把握してしまったのです。
+
+「お…！？」と思いました。私の目の前にいる若者は、何か凄いことをしました。
+
+平静を装いつつも、「まあ今の時代では普通なのだろう」とも思いました。すぐに人は変わりません。しかし、今思い返すに、ヒビくらいは入った出来事だったように思います。
+
+そして今年、ついにiPhone SEのマイクが故障してしまい、電話機能に支障が出るようになってしまいました。
+
+同時に、これはGeminiを知る機会となりました。Geminiは森山直太朗の『片足のポー』で、なぜ「君は塞いだ」のか答えました。エルデンリングで、マレニアのキックはパリィできないと知っていました。
+
+今回は言葉が出ませんでした。
+
+## なぜ今、ブログなのか
+
+昔から「いつかブログをやってみたい」という漠然とした思いはありました。
+
+現在、私は自作PCの構築を検討しています。ゆくゆくはAIを活用したゲーム制作などにも挑戦してみたいのですが、肝心のメモリやGPUといったPCパーツの価格が高騰しており、今は「手足」となる環境を整えるのを少し様子見している状態です。
+
+そこで、PC構築のタイミングを待つ間の時間を有効活用し、AIの力も借りながら、まずは先行してこのブログをスタートさせることにしました。
+
+これまで生きてきた中で、私自身、インターネット上の様々な先人たちの情報に何度も助けられてきました。だからこそ、今度は自分が情報発信する側に回ってみたい。私の発信が、どこかの誰かのちょっとした足しになり、豊かな人生の助けになれれば嬉しいです。
+
+## これから発信していくこと
+
+このブログでは、以下のようなテーマで記事を書いていく予定です。
+
+- **買ったモノのレビューや日々の気づき**  
+  「本当に良いものを買いたい」「良い条件をしっかり模索したい」と思っているだけだったりします。そうやって吟味して手に入れたモノの率直な感想をシェアしていきます。
+- **自作PC構築やゲーム制作への道のり**  
+  理想のPC環境を少しずつ組み上げていく過程や、今後の目標であるゲーム開発に向けた進捗を記録していきます。
+- **私という一個人の人生観**  
+  日々の生活の中で感じたことなどを、備忘録として残していきます。
+
+マイペースに更新を続けていこうと思います。  
+これから、どうぞよろしくお願いいたします。
