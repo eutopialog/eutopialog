@@ -1,0 +1,64 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+---
+
+<!doctype html>
+<html lang="ja">
+	<head>
+		<BaseHead title={`404 Page Not Found | ${SITE_TITLE}`} description={SITE_DESCRIPTION} />
+		<style>
+			.not-found-container {
+				text-align: center;
+				padding: 4em 1em;
+			}
+			.error-code {
+				font-size: 5em;
+				font-weight: bold;
+				margin: 0;
+				color: var(--text-color);
+				line-height: 1;
+			}
+			.error-title {
+				font-size: 1.4em;
+				margin: 0.8em 0 1em 0;
+				color: var(--text-color);
+			}
+			.error-desc {
+				color: var(--text-muted);
+				margin-bottom: 2em;
+				line-height: 1.6;
+			}
+			.home-btn {
+				display: inline-block;
+				padding: 0.6em 1.4em;
+				border: 1px solid var(--text-color);
+				border-radius: 4px;
+				color: var(--text-color);
+				text-decoration: none;
+				font-weight: 500;
+				transition: all 0.2s ease;
+			}
+			.home-btn:hover {
+				background-color: var(--text-color);
+				color: #ffffff;
+			}
+		</style>
+	</head>
+	<body>
+		<Header />
+		<main>
+			<section class="not-found-container">
+				<p class="error-code">404</p>
+				<h1 class="error-title">ページが見つかりませんでした</h1>
+				<p class="error-desc">
+					お探しのページは削除されたか、URLが変更された可能性があります。
+				</p>
+				<a href="/" class="home-btn">➔ トップページへ戻る</a>
+			</section>
+		</main>
+		<Footer />
+	</body>
+</html>
