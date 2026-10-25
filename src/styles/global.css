@@ -1,40 +1,39 @@
-/* ノートと鉛筆風テーマ */
+/* ウォームグレーベタ塗り×線画ノートテーマ */
 :root {
-	/* 色の設定 */
-	--bg-color: #fcfbfa;          /* 温かみのある紙の背景色 */
-	--text-color: #2c2c2c;        /* 鉛筆の濃い芯のようなダークグレー */
-	--text-muted: #666666;        /* 薄めの鉛筆色 */
-	--border-color: #e2ded9;      /* ノートの罫線風グレー */
-	--accent-color: #4a4a4a;      /* ワンポイント用の深い鉛筆色 */
-	--link-color: #3b5998;        /* 落ち着いたインク風ブルー */
+	--bg-color: #f2f0e9;          /* 目と肩に優しいウォーム系グレー（ベタ塗り） */
+	--card-bg: #fcfbf9;           /* 本文エリアのやわらかい白 */
+	--text-color: #2b2b2b;        /* 鉛筆の濃い芯色 */
+	--text-muted: #6e6b66;        /* サブテキスト色 */
+	--border-color: #ded9cd;      /* ノートの繊細な罫線色 */
+	--accent-color: #4a4a4a;      /* 線画のアクセント */
+	--link-color: #2b4c7e;        /* 静かなインクブルー */
 	
-	/* レイアウト設定 */
-	--max-width: 720px;           /* 視線移動が疲れないノート幅 */
+	--max-width: 720px;
 }
 
-/* 全体の基本設定 */
-html {
-	background-color: var(--bg-color);
+/* 全体の基本設定（ベタ塗りとゴシック体） */
+html, body {
+	margin: 0;
+	padding: 0;
+	background-color: var(--bg-color); /* 模様なしの完全ベタ塗り */
 	color: var(--text-color);
 	font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Meiryo", sans-serif;
 	font-size: 16px;
-	line-height: 1.85;            /* スマホ・PC双方で圧倒的に読みやすい行間 */
-	letter-spacing: 0.03em;       /* わずかな文字間隔で上品さを追加 */
-}
-
-body {
-	margin: 0;
-	padding: 0;
-	background-color: var(--bg-color);
+	line-height: 1.85;
+	letter-spacing: 0.03em;
 }
 
 main {
 	max-width: var(--max-width);
-	margin: 0 auto;
-	padding: 2em 1.2em 4em 1.2em; /* スマホ表示でも端がキツキツにならない余白 */
+	margin: 2em auto 4em auto;
+	padding: 2.5em 2em;
+	background-color: var(--card-bg);
+	border-radius: 4px;
+	border: 1px solid var(--border-color);
+	box-shadow: 0 2px 12px rgba(0, 0, 0, 0.03); /* ほんのり浮かぶノートの影 */
 }
 
-/* 見出し（ノート風のデザイン） */
+/* 見出し（罫線と線画のアクセント） */
 h1, h2, h3, h4, h5, h6 {
 	color: var(--text-color);
 	line-height: 1.4;
@@ -43,42 +42,41 @@ h1, h2, h3, h4, h5, h6 {
 
 h1 {
 	font-size: 1.8em;
-	margin-top: 1em;
+	margin-top: 0.5em;
 	margin-bottom: 0.8em;
 }
 
 h2 {
-	font-size: 1.4em;
-	margin-top: 2em;
+	font-size: 1.35em;
+	margin-top: 2.2em;
 	margin-bottom: 0.8em;
-	padding-bottom: 0.3em;
-	border-bottom: 1px solid var(--border-color); /* ノートの罫線風下線 */
+	padding-bottom: 0.4em;
+	border-bottom: 1px solid var(--border-color); /* 罫線風の下線 */
 	position: relative;
 }
 
+/* 下線の先頭に引いた鉛筆風の二重アクセント線 */
 h2::after {
 	content: '';
 	position: absolute;
 	left: 0;
 	bottom: -1px;
-	width: 40px;
+	width: 50px;
 	height: 2px;
-	background-color: var(--accent-color); /* 鉛筆で線を重ね描きしたようなアクセント */
+	background-color: var(--accent-color);
 }
 
 h3 {
 	font-size: 1.15em;
-	margin-top: 1.6em;
-	padding-left: 0.6em;
-	border-left: 3px solid var(--accent-color);  /* 左側に鉛筆ライン */
+	margin-top: 1.8em;
+	padding-left: 0.7em;
+	border-left: 3px solid var(--accent-color);
 }
 
-/* 文章・段落 */
 p {
 	margin-bottom: 1.6em;
 }
 
-/* リンク */
 a {
 	color: var(--link-color);
 	text-decoration: underline;
@@ -89,7 +87,6 @@ a:hover {
 	opacity: 0.75;
 }
 
-/* リスト（箇条書き） */
 ul, ol {
 	padding-left: 1.4em;
 	margin-bottom: 1.6em;
@@ -99,20 +96,21 @@ li {
 	margin-bottom: 0.5em;
 }
 
-/* 引用枠（メモ書き風） */
 blockquote {
 	margin: 1.6em 0;
 	padding: 0.8em 1.2em;
-	border-left: 2px solid var(--border-color);
-	background-color: rgba(0, 0, 0, 0.015);
+	border-left: 2px solid var(--accent-color);
+	background-color: #eae7dd;
 	color: var(--text-muted);
-	font-style: normal;
 }
 
-/* ヘッダー・フッターの背景統合 */
+/* 固定ヘッダー */
 header {
-	background-color: rgba(252, 251, 250, 0.95) !important;
-	backdrop-filter: blur(5px);
+	position: sticky;
+	top: 0;
+	z-index: 100;
+	background-color: rgba(242, 240, 233, 0.94) !important;
+	backdrop-filter: blur(8px);
 	border-bottom: 1px solid var(--border-color);
 }
 
